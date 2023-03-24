@@ -1,0 +1,22 @@
+name: Pipelines
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deployment:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd school-se-for-the-cloud
+            git checkout main
+            git pull
+            echo "pull main branch"
