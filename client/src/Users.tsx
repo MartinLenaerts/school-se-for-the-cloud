@@ -13,9 +13,8 @@ function Users() {
     useEffect(() => {
         const fetchUsers = async () => {
             const res = await fetch("http://localhost:3000/users", {})
-            if (res.ok && res.status === 200) {
-                setUsers([{"id": 1, "name": "user1"}, {"id": 2, "name": "user2"}])
-            }
+            setUsers([{"id": 1, "name": "user1"}, {"id": 2, "name": "user2"}])
+
         }
 
         fetchUsers()
