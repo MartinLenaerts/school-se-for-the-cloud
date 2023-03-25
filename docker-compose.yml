@@ -3,13 +3,29 @@ version: '3'
 services:
   server:
     build: ./server
+    container_name: server_cloud
+    depends_on:
+      - database
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     environment:
       - NODE_ENV=production
   client:
     build: ./client
+    container_name: client_cloud
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:3000"
     environment:
       - NODE_ENV=production
+  database:
+    image: mysql:latest
+    container_name: db_cloud
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - data:/var/lib/mysql:delegated
+volumes:
+  data:
+
