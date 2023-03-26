@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        microservice: [service, client]
+        microservice: [server, client]
 
     steps:
       - name: Checkout code
@@ -34,9 +34,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    strategy:
-      matrix:
-        microservice: [ server, client ]
 
     steps:
       - name: Checkout code
