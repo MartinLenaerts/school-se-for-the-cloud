@@ -50,6 +50,4 @@ jobs:
             rm -rf school-se-for-the-cloud
             git clone git@github.com:MartinLenaerts/school-se-for-the-cloud.git
             cd school-se-for-the-cloud
-            mkdir kubernetes
-            kompose convert -f docker-compose.yml -o kubernetes/
             kubectl apply -f kubernetes/ --force
