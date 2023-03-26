@@ -2,7 +2,7 @@ version: '3'
 
 services:
   server:
-    image: akarsx/my-server-image:latest
+    build: ./server
     container_name: server_cloud
     depends_on:
       - database
@@ -10,17 +10,13 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - GET_HOSTS_FROM=dns
   client:
-    image: akarsx/my-client-image:latest
+    build: ./client
     container_name: client_cloud
     ports:
       - "80:3000"
     environment:
       - NODE_ENV=production
-      - GET_HOSTS_FROM=dns
-    labels:
-      kompose.service.type: LoadBalancer
   database:
     image: mysql:latest
     container_name: db_cloud
