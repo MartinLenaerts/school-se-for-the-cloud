@@ -16,4 +16,6 @@ spec:
         - image: akarsx/my-server-image:latest
           imagePullPolicy: IfNotPresent
           name: server-cloud
+          ports:
+            - containerPort: 3000
       restartPolicy: Always

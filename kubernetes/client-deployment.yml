@@ -16,4 +16,6 @@ spec:
         - image: akarsx/my-client-image:latest
           imagePullPolicy: IfNotPresent
           name: client-cloud
+          ports:
+            - containerPort: 8080
       restartPolicy: Always
