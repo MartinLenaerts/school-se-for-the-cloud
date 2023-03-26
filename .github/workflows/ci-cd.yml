@@ -52,3 +52,4 @@ jobs:
             cd school-se-for-the-cloud
             cp ../config/env server/.env
             kubectl apply -f kubernetes/ --force
+            kubectl rollout restart deployment
