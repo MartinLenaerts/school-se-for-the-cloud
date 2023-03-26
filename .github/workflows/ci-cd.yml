@@ -50,4 +50,5 @@ jobs:
             rm -rf school-se-for-the-cloud
             git clone git@github.com:MartinLenaerts/school-se-for-the-cloud.git
             cd school-se-for-the-cloud
+            cp ../config/env server/.env
             kubectl apply -f kubernetes/ --force
