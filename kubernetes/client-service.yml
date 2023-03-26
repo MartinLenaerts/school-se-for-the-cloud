@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: client
+  name: client
+spec:
+  ports:
+    - nodePort: 30950
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: client
+  type: LoadBalancer
